@@ -24,7 +24,7 @@ enable_media_control = false
 enable_streaming = "Always"
 enable_notify = true
 enable_cover_image_cache = true
-default_device = "spotify-player"
+default_device = "spotify-in-terminal"
 notify_streaming_only = false
 
 [notify_format]
@@ -32,9 +32,9 @@ summary = "{track} • {artists}"
 body = "{album}"
 
 [device]
-name = "spotify-player"
+name = "spotify-in-terminal"
 device_type = "speaker"
-volume = 70
+volume = 100
 bitrate = 320
 audio_cache = false
 normalization = false
