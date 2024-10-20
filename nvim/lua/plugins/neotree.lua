@@ -2,7 +2,7 @@ return {
   "nvim-neo-tree/neo-tree.nvim",
   opts = {
     window = {
-      position = "right",
+      position = "left",
       mappings = {
         ["Y"] = "none",
       },
@@ -16,6 +16,7 @@ return {
         },
         always_show = {
           ".env",
+          ".github",
         },
       },
     },
