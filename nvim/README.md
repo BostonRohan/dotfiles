@@ -1,10 +1,14 @@
-# AstroNvim Template
+# Neovim Config
+
+This is my first ever Neovim config, I spun this up from an astronvim template. It is kinda botched and it works sometimes, sometimes it doesn't.
+
+## AstroNvim Template
 
 **NOTE:** This is for AstroNvim v4+
 
 A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
 
-## 🛠️ Installation
+### 🛠️ Installation
 
 #### Make a backup of your current nvim and shared folder
 
