@@ -1,0 +1,20 @@
+# Mac OS LOL
+.DS_Store
+
+# Raycast
+raycast/config.json
+
+# Github Copilot
+github-copilot/hosts.json
+
+# iTerm2
+iterm2
+
+# Zed
+zed/conversations
+zed/embeddings
+
+# Globals
+.tmp*
+node_modules
+
