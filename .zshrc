@@ -48,7 +48,7 @@ source $ZSH/oh-my-zsh.sh
 #Alias'
 alias ec-backend-run="RUST_LOG=info cargo watch --ignore schema.graphql --env-file ./.env -- cargo run --bin elevation_church_api"
 alias ec-backend-test="RUST_LOG=info cargo watch --ignore schema.graphql --env-file ./.env -- cargo test -- --nocapture --show-output"
-alias strybttn-backend-run="RUST_LOG=info cargo watch --ignore schema.graphql --env-file .env -- cargo run --bin bttn_plus_api"
+alias strybttn-backend-run="RUST_LOG=info cargo watch --ignore schema.graphql --env-file ./.env -- cargo run --bin bttn_plus_api"
 alias strybttn-backend-test="RUST_LOG=info cargo watch --ignore schema.graphql --env-file ./.env -- cargo test -- --nocapture --show-output"
 alias strybttn-deps="dart run build_runner watch --delete-conflicting-outputs"
 
