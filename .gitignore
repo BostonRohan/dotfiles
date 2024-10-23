@@ -18,3 +18,8 @@ zed/embeddings
 .tmp*
 node_modules
 
+# Raycast
+
+# config file is password protected
+*.rayconfig
+
