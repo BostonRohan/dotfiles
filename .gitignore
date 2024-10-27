@@ -5,7 +5,7 @@
 raycast/config.json
 
 # Github Copilot
-github-copilot/hosts.json
+github-copilot/apps.json
 
 # iTerm2
 iterm2
