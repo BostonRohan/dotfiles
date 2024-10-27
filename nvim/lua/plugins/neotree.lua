@@ -13,9 +13,10 @@ return {
         hide_by_name = {
           ".git",
           ".DS_Store",
+          ".vscode",
         },
-        always_show = {
-          ".env",
+        always_show_by_pattern = {
+          ".env*",
           ".github",
         },
       },
