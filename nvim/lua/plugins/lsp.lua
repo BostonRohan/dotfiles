@@ -29,38 +29,54 @@ end
 return {
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        vtsls = {
-          settings = {
-            typescript = {
-              inlayHints = {
-                enumMemberValues = { enabled = false },
-                functionLikeReturnTypes = { enabled = false },
-                parameterNames = { enabled = false },
-                parameterTypes = { enabled = false },
-                propertyDeclarationTypes = { enabled = false },
-                variableTypes = { enabled = false },
-              },
+    opts = function(_, opts)
+      opts.servers = opts.servers or {}
+
+      -- Disable diagnostics for .env files https://github.com/LazyVim/LazyVim/discussions/4027#discussioncomment-10425524
+      local on_publish_diagnostics = vim.lsp.diagnostic.on_publish_diagnostics
+      opts.servers.bashls = vim.tbl_deep_extend("force", opts.servers.bashls or {}, {
+        handlers = {
+          ["textDocument/publishDiagnostics"] = function(err, res, ...)
+            local file_name = vim.fn.fnamemodify(vim.uri_to_fname(res.uri), ":t")
+            if string.match(file_name, "^%.env") == nil then
+              return on_publish_diagnostics(err, res, ...)
+            end
+          end,
+        },
+      })
+
+      opts.servers.vtsls = {
+        settings = {
+          typescript = {
+            inlayHints = {
+              enumMemberValues = { enabled = false },
+              functionLikeReturnTypes = { enabled = false },
+              parameterNames = { enabled = false },
+              parameterTypes = { enabled = false },
+              propertyDeclarationTypes = { enabled = false },
+              variableTypes = { enabled = false },
             },
           },
         },
-        gopls = {
-          settings = {
-            gopls = {
-              hints = {
-                assignVariableTypes = false,
-                compositeLiteralFields = false,
-                compositeLiteralTypes = false,
-                constantValues = false,
-                functionTypeParameters = false,
-                parameterNames = false,
-                rangeVariableTypes = false,
-              },
+      }
+
+      opts.servers.gopls = {
+        settings = {
+          gopls = {
+            hints = {
+              assignVariableTypes = false,
+              compositeLiteralFields = false,
+              compositeLiteralTypes = false,
+              constantValues = false,
+              functionTypeParameters = false,
+              parameterNames = false,
+              rangeVariableTypes = false,
             },
           },
         },
-      },
-    },
+      }
+
+      return opts
+    end,
   },
 }
