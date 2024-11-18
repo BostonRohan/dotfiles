@@ -33,7 +33,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 # stamp shown in the history command output.
 # You can set one of the optional three formats:
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
+# or set a custom format using the strftime function form eat specifications,
 # see 'man strftime' for details.
 HIST_STAMPS="mm/dd/yyyy"
 
@@ -46,11 +46,12 @@ source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source $ZSH/oh-my-zsh.sh
 
 #Alias'
-alias ec-backend-run="RUST_LOG=debug cargo watch --ignore schema.graphql --env-file ./.env -- cargo run --bin elevation_church_api"
-alias ec-backend-test="RUST_LOG=debug cargo watch --ignore schema.graphql --env-file ./.env.test -- cargo test -- --nocapture --show-output"
+alias ec-api='$HOME/.config/tmux/ec-api.sh'
 alias strybttn-backend-run="RUST_LOG=debug cargo watch --workdir apps/bttn_plus_api --env-file=../../.env --ignore schema.graphql -- cargo run --bin bttn_plus_api"
 alias strybttn-backend-test="RUST_LOG=debug cargo watch --workdir apps/bttn_plus_api --env-file=../../.env.test --ignore schema.graphql -- cargo test -- --nocapture --show-output"
 alias strybttn-deps="dart run build_runner watch --delete-conflicting-outputs"
+
+alias cargo='nocorrect cargo'
 
 #Dump Environment Variables
 function dump_env {
