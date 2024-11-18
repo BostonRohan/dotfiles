@@ -73,7 +73,7 @@ export PATH="$HOME/flutter/bin:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # pnpm
-export PNPM_HOME="/Users/bostonrohan/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
