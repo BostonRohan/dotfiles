@@ -47,8 +47,8 @@ source $ZSH/oh-my-zsh.sh
 
 #Alias'
 alias ec-api='$HOME/.config/tmux/ec-api.sh'
-alias strybttn-backend-run="RUST_LOG=debug cargo watch --workdir apps/bttn_plus_api --env-file=../../.env --ignore schema.graphql -- cargo run --bin bttn_plus_api"
-alias strybttn-backend-test="RUST_LOG=debug cargo watch --workdir apps/bttn_plus_api --env-file=../../.env.test --ignore schema.graphql -- cargo test -- --nocapture --show-output"
+alias ec-web='$HOME/.config/tmux/ec-web.sh'
+alias strybttn-api='$HOME/.config/tmux/strybttn-api.sh'
 alias strybttn-deps="dart run build_runner watch --delete-conflicting-outputs"
 
 alias cargo='nocorrect cargo'
