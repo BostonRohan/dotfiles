@@ -20,6 +20,8 @@ node_modules
 
 # Raycast
 
+raycast
+
 # config file is password protected
 *.rayconfig
 
