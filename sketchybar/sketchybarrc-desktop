@@ -8,7 +8,7 @@ SPOTIFY_EVENT="com.spotify.client.PlaybackStateChanged"
 
 sketchybar --bar \
     height=32 \
-    color=0x66494d64 \
+    color=0xCC494D64 \
     margin=0 \
     sticky=on \
     padding_left=0 \
@@ -27,13 +27,6 @@ sketchybar --default \
     label.y_offset=1 \
     label.padding_left=0 \
     label.padding_right=5
-
-sketchybar --add item current_space left \
-    --set current_space \
-    background.color=0xfff5a97f \
-    label.drawing=off \
-    script="$PLUGIN_SHARED_DIR/current_space.sh" \
-    --subscribe current_space space_change mouse.clicked
 
 sketchybar --add item front_app left \
     --set front_app \
@@ -66,6 +59,21 @@ sketchybar --add bracket front_app_bracket \
     front_app.separator \
     front_app.name \
     --subscribe front_app front_app_switched
+
+sketchybar --add event aerospace_workspace_change
+
+for sid in $(aerospace list-workspaces --all); do
+    sketchybar --add item space.$sid left \
+        --subscribe space.$sid aerospace_workspace_change \
+        --set space.$sid \
+        background.color=0x44ffffff \
+        background.corner_radius=5 \
+        background.height=20 \
+        background.drawing=off \
+        label="$sid" \
+        click_script="aerospace workspace $sid" \
+        script="$CONFIG_DIR/plugins/aerospace.sh $sid"
+done
 
 sketchybar --add item clock right \
     --set clock \
