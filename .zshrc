@@ -2,6 +2,9 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 export ZSH="$HOME/.oh-my-zsh"
 
+export PATH="/usr/lib/google-cloud-sdk/bin:$PATH"
+
+
 ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use case-sensitive completion.
@@ -46,7 +49,7 @@ source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source $ZSH/oh-my-zsh.sh
 
 #Alias'
-alias ec-api='$HOME/.config/tmux/ec-api.sh'
+alias ec-backend='$HOME/.config/tmux/ec-backend.sh'
 alias ec-web='$HOME/.config/tmux/ec-web.sh'
 alias strybttn-api='$HOME/.config/tmux/strybttn-api.sh'
 alias strybttn-deps="dart run build_runner watch --delete-conflicting-outputs"
@@ -72,6 +75,12 @@ export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 export PATH="$HOME/flutter/bin:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
+# openssl configuration for rdkafka 
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export LDFLAGS="-L$(brew --prefix openssl@3)/lib"
+export CPPFLAGS="-I$(brew --prefix openssl@3)/include"
+export PKG_CONFIG_PATH="$(brew --prefix openssl@3)/lib/pkgconfig"
+
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
@@ -79,3 +88,9 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/bostonrohan/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bostonrohan/Documents/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/bostonrohan/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bostonrohan/Documents/google-cloud-sdk/completion.zsh.inc'; fi

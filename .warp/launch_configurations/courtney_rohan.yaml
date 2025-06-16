@@ -1,0 +1,9 @@
+name: Courtney Rohan
+windows:
+    - tabs:
+          - title: web
+            layout:
+                cwd: /Users/bostonrohan/Projects/Personal/courtneyrohan
+                commands:
+                    - exec: bun dev
+            color: yellow

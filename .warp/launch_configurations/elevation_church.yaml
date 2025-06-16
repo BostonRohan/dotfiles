@@ -1,0 +1,21 @@
+name: Elevation Church
+windows:
+  - tabs:
+      - title: website
+        layout:
+          cwd: /Users/bostonrohan/
+          commands:
+            - exec: ec-web
+        color: yellow
+      - title: backend
+        layout:
+          cwd: /Users/bostonrohan
+          commands:
+            - exec: ec-backend
+        color: red
+      - title: terraform
+        layout:
+          cwd: /Users/bostonrohan/Projects/Work/elevation/elevation-church-terraform
+          commands:
+            - exec: lazygit
+        color: blue

@@ -5,9 +5,9 @@ START_SERVER="pnpm dev"
 START_TESTS="pnpm test:watch"
 
 if ! tmux has-session -t $SESH 2>/dev/null; then
-  tmux new-session -s $SESH -n "editor" -d
-  tmux send-keys -t $SESH:editor "cd ~/Projects/Work/elevation/ec-website/" C-m
-  tmux send-keys -t $SESH:editor "nvim" C-m
+  tmux new-session -s $SESH -n "lazygit" -d
+  tmux send-keys -t $SESH:lazygit "cd ~/Projects/Work/elevation/ec-website/" C-m
+  tmux send-keys -t $SESH:lazygit "lazygit" C-m
 
   tmux new-window -t $SESH -n "server-test" -d
   tmux send-keys -t $SESH:server-test "cd ~/Projects/Work/elevation/ec-website/" C-m

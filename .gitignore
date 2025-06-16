@@ -25,3 +25,5 @@ raycast
 # config file is password protected
 *.rayconfig
 
+# Google Cloud CLI
+gcloud
