@@ -59,7 +59,7 @@ sketchybar --add bracket front_app_bracket \
 
 sketchybar --add event aerospace_workspace_change
 
-for sid in $(aerospace list-workspaces --all); do
+for sid in 1 2 3 4; do
     sketchybar --add item space.$sid left \
         --subscribe space.$sid aerospace_workspace_change \
         --set space.$sid \

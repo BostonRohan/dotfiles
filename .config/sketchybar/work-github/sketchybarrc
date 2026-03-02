@@ -24,7 +24,6 @@ cd "$WORK_THEME_DIR/helper" && make
 
 # Setting up the general bar appearance and default values
 sketchybar --bar     height=60                                         \
-                     width=46                                          \
                      color=$BAR_COLOR                                  \
                      shadow=$SHADOW                                    \
                      position=right                                    \
@@ -59,9 +58,9 @@ sketchybar --bar     height=60                                         \
 source "$ITEM_DIR/apple.sh"
 source "$ITEM_DIR/front_app.sh"
 
-# AeroSpace workspaces (replaces yabai spaces from downloaded theme)
+# AeroSpace workspaces
 sketchybar --add event aerospace_workspace_change
-for sid in $(aerospace list-workspaces --all); do
+for sid in 1 2 3 4; do
   sketchybar --add item space.$sid left                                \
              --subscribe space.$sid aerospace_workspace_change         \
              --set space.$sid click_script="aerospace workspace $sid" \
@@ -69,12 +68,14 @@ for sid in $(aerospace list-workspaces --all); do
                              background.corner_radius=9               \
                              background.height=30                     \
                              background.drawing=off                   \
+                             background.padding_left=6                \
+                             background.padding_right=6               \
                              icon="$sid"                              \
-                             icon.font="sketchybar-app-font:Regular:16.0" \
+                             icon.font="$FONT:Bold:14.0"              \
                              icon.color=$WHITE                        \
-                             icon.padding_left=22                     \
-                             icon.padding_right=22                    \
-                             label.padding_right=33                   \
+                             icon.padding_left=18                     \
+                             icon.padding_right=18                    \
+                             label.padding_right=0                    \
                              label.drawing=off                        \
                              script="$HOME/.config/sketchybar/plugins/aerospace.sh $sid"
 done
