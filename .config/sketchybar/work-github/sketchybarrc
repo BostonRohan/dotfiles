@@ -1,0 +1,93 @@
+#!/usr/bin/env sh
+
+WORK_THEME_DIR="$HOME/.config/sketchybar/work-github"
+
+source "$WORK_THEME_DIR/colors.sh" # Loads all defined colors
+source "$WORK_THEME_DIR/icons.sh" # Loads all defined icons
+
+ITEM_DIR="$WORK_THEME_DIR/items" # Directory where the items are configured
+PLUGIN_DIR="$WORK_THEME_DIR/plugins" # Directory where all the plugin scripts are stored
+
+FONT="SF Pro Display" # Needs to have Regular, Bold, Semibold, Heavy and Black variants
+PADDINGS=2 # All paddings use this value (icon, label, background)
+
+POPUP_BORDER_WIDTH=2
+POPUP_CORNER_RADIUS=11
+
+SHADOW=on
+
+HELPER=git.felix.helper
+# Start the helper process
+killall helper
+cd "$WORK_THEME_DIR/helper" && make
+"$WORK_THEME_DIR/helper/helper" "$HELPER" &
+
+# Setting up the general bar appearance and default values
+sketchybar --bar     height=60                                         \
+                     width=46                                          \
+                     color=$BAR_COLOR                                  \
+                     shadow=$SHADOW                                    \
+                     position=right                                    \
+                     display=main                                      \
+                     sticky=on                                         \
+                     padding_right=26                                  \
+                     padding_left=20                                   \
+                     corner_radius=9                                   \
+                     y_offset=40                                       \
+                     margin=10                                         \
+                     blur_radius=20                                    \
+                     notch_width=200                                   \
+                                                                       \
+           --default updates=when_shown                                \
+                     icon.font="$FONT:Bold:14.0"                       \
+                     icon.color=$ICON_COLOR                            \
+                     icon.padding_left=$PADDINGS                       \
+                     icon.padding_right=$PADDINGS                      \
+                     label.font="$FONT:Semibold:13.0"                  \
+                     label.color=$LABEL_COLOR                          \
+                     label.padding_left=$PADDINGS                      \
+                     label.padding_right=$PADDINGS                     \
+                     background.padding_right=$PADDINGS                \
+                     background.padding_left=$PADDINGS                 \
+                     popup.background.border_width=2                   \
+                     popup.background.corner_radius=11                 \
+                     popup.background.border_color=$POPUP_BORDER_COLOR \
+                     popup.background.color=$POPUP_BACKGROUND_COLOR    \
+                     popup.background.shadow.drawing=$SHADOW
+
+# Left
+source "$ITEM_DIR/apple.sh"
+source "$ITEM_DIR/front_app.sh"
+
+# AeroSpace workspaces (replaces yabai spaces from downloaded theme)
+sketchybar --add event aerospace_workspace_change
+for sid in $(aerospace list-workspaces --all); do
+  sketchybar --add item space.$sid left                                \
+             --subscribe space.$sid aerospace_workspace_change         \
+             --set space.$sid click_script="aerospace workspace $sid" \
+                             background.color=0xff3C3E4F              \
+                             background.corner_radius=9               \
+                             background.height=30                     \
+                             background.drawing=off                   \
+                             icon="$sid"                              \
+                             icon.font="sketchybar-app-font:Regular:16.0" \
+                             icon.color=$WHITE                        \
+                             icon.padding_left=22                     \
+                             icon.padding_right=22                    \
+                             label.padding_right=33                   \
+                             label.drawing=off                        \
+                             script="$HOME/.config/sketchybar/plugins/aerospace.sh $sid"
+done
+
+# Center
+# source "$ITEM_DIR/spotify.sh"
+
+# Right
+source "$ITEM_DIR/github.sh"
+source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/cpu.sh"
+
+############## FINALIZING THE SETUP ##############
+sketchybar --update
+
+echo "sketchybar configuation loaded.."
