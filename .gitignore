@@ -24,5 +24,19 @@ raycast
 # Google Cloud CLI
 gcloud
 
+# Ignore all .config entries by default.
+.config/*
+
+# Keep managed dotfiles.
+!.config/aerospace/
+!.config/aerospace/**
+!.config/sketchybar/
+!.config/sketchybar/**
+!.config/tmux/
+!.config/tmux/**
+
+# Ignore Finder metadata under managed .config trees.
+.config/**/.DS_Store
+
 # SketchyBar local state
 .config/sketchybar/.display_profile
