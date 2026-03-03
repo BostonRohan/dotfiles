@@ -10,10 +10,6 @@ github-copilot/apps.json
 # iTerm2
 iterm2
 
-# Zed
-zed/conversations
-zed/embeddings
-
 # Globals
 .tmp*
 node_modules
@@ -27,3 +23,6 @@ raycast
 
 # Google Cloud CLI
 gcloud
+
+# SketchyBar local state
+.config/sketchybar/.display_profile
