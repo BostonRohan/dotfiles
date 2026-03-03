@@ -51,22 +51,38 @@ source $ZSH/oh-my-zsh.sh
 #Alias'
 alias ec-backend='$HOME/.config/tmux/ec-backend.sh'
 alias ec-web='$HOME/.config/tmux/ec-web.sh'
-alias strybttn-api='$HOME/.config/tmux/strybttn-api.sh'
-alias strybttn-deps="dart run build_runner watch --delete-conflicting-outputs"
+alias ec-api='$HOME/.config/tmux/ec-api.sh'
+alias ec-claude="CLAUDE_CONFIG_DIR=~/.ec-claude claude"
+alias claude="CLAUDE_CONFIG_DIR=~/.claude claude"
+
 
 alias cargo='nocorrect cargo'
 
-#Dump Environment Variables
-function dump_env {
+dump_env() {
+  # Use the first argument as the .env file path, default to ".env" if none provided
   local env_path="${1:-.env}"
 
-  source $env_path && export $(sed '/^#/d' $env_path | cut -d= -f1)
+  # Check if the file exists; if not, print a warning and return an error code
+  if [[ ! -f "$env_path" ]]; then
+    echo "⚠️ File not found: $env_path"
+    return 1
+  fi
+
+  # Read the file line by line
+  while IFS='=' read -r key val; do
+    # Skip lines that are comments (start with #) or empty
+    [[ "$key" =~ ^#.*$ || -z "$key" ]] && continue
+
+    # Evaluate the value to expand any variables referenced in it (like ${OTHER_VAR})
+    # Then export the key-value pair into the current shell environment
+    export "$key=$(eval echo "$val")"
+  done < "$env_path"
 }
 
 #NVM
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" 
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
 #Docker
 export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
@@ -75,7 +91,7 @@ export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 export PATH="$HOME/flutter/bin:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
-# openssl configuration for rdkafka 
+# openssl configuration for rdkafka
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export LDFLAGS="-L$(brew --prefix openssl@3)/lib"
 export CPPFLAGS="-I$(brew --prefix openssl@3)/include"
@@ -94,3 +110,7 @@ if [ -f '/Users/bostonrohan/Documents/google-cloud-sdk/path.zsh.inc' ]; then . '
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/bostonrohan/Documents/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bostonrohan/Documents/google-cloud-sdk/completion.zsh.inc'; fi
+
+sb() {
+  ~/.config/sketchybar/set-profile.sh "$@"
+}
