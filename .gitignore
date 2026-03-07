@@ -24,6 +24,14 @@ raycast
 # Google Cloud CLI
 gcloud
 
+# AI assistant local state (auth, history, sessions, caches)
+.codex/
+.codex-*/
+.claude/
+.ec-claude/
+.claude.json
+.claude.json.backup*
+
 # Ignore all .config entries by default.
 .config/*
 
@@ -34,6 +42,10 @@ gcloud
 !.config/sketchybar/**
 !.config/tmux/
 !.config/tmux/**
+!.config/codex/
+!.config/codex/**
+!.config/claude/
+!.config/claude/**
 
 # Ignore Finder metadata under managed .config trees.
 .config/**/.DS_Store

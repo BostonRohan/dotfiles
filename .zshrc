@@ -52,8 +52,23 @@ source $ZSH/oh-my-zsh.sh
 alias ec-backend='$HOME/.config/tmux/ec-backend.sh'
 alias ec-web='$HOME/.config/tmux/ec-web.sh'
 alias ec-api='$HOME/.config/tmux/ec-api.sh'
-alias ec-claude="CLAUDE_CONFIG_DIR=~/.ec-claude claude"
-alias claude="CLAUDE_CONFIG_DIR=~/.claude claude"
+unalias codex ec-codex claude ec-claude 2>/dev/null
+
+claude() {
+  CLAUDE_CONFIG_DIR="$HOME/.claude" command claude "$@"
+}
+
+ec-claude() {
+  CLAUDE_CONFIG_DIR="$HOME/.ec-claude" command claude "$@"
+}
+
+codex() {
+  CODEX_HOME="$HOME/.codex" command codex "$@"
+}
+
+ec-codex() {
+  CODEX_HOME="$HOME/.ec-codex" command codex "$@"
+}
 
 
 alias cargo='nocorrect cargo'
