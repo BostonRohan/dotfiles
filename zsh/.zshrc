@@ -125,10 +125,6 @@ export NVM_DIR="$HOME/.nvm"
 #Docker
 export PATH="$PATH:/Applications/Docker.app/Contents/Resources/bin/"
 
-#Flutter
-export PATH="$HOME/flutter/bin:$PATH"
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-
 # openssl configuration for rdkafka
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export LDFLAGS="-L$(brew --prefix openssl@3)/lib"
