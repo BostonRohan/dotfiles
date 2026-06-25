@@ -1,0 +1,37 @@
+personality = "pragmatic"
+model = "gpt-5.4-mini"
+model_reasoning_effort = "low"
+
+[projects."/Users/bostonrohan/Projects/Personal/portfolio"]
+trust_level = "trusted"
+
+[projects."/Users/bostonrohan/Projects/dotfiles"]
+trust_level = "trusted"
+
+[projects."/Users/bostonrohan/Projects/Work/elevation"]
+trust_level = "trusted"
+
+[projects."/Users/bostonrohan/Projects/Work/elevation/ec-website"]
+trust_level = "trusted"
+
+[projects."/Users/bostonrohan/Projects/Personal/qc-family-tree"]
+trust_level = "trusted"
+
+[projects."/Users/bostonrohan/Projects/Personal/gen-z-writes"]
+trust_level = "trusted"
+
+[projects."/Users/bostonrohan/conductor/repos/Starter project"]
+trust_level = "trusted"
+
+[notice.model_migrations]
+"gpt-5.3-codex" = "gpt-5.4"
+"gpt-5.1-codex-mini" = "gpt-5.4"
+
+[mcp_servers.vercel]
+url = "https://mcp.vercel.com"
+
+[plugins."github@openai-curated"]
+enabled = true
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4

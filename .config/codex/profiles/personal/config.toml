@@ -1,2 +1,5 @@
-personality = "pragmatic"
-model = "gpt-5.3-codex"
+[projects."/Users/bostonrohan/Projects/dotfiles"]
+trust_level = "trusted"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 2

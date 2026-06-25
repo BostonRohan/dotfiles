@@ -1,0 +1,17 @@
+{
+  "model": "opus[1m]",
+  "enabledPlugins": {
+    "rust-analyzer-lsp@claude-plugins-official": true,
+    "ec@elevation-church-claude-marketplace": true
+  },
+  "extraKnownMarketplaces": {
+    "elevation-church-claude-marketplace": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/bostonrohan/Projects/Work/elevation/claude_plugins"
+      }
+    }
+  },
+  "effortLevel": "medium",
+  "tui": "fullscreen"
+}

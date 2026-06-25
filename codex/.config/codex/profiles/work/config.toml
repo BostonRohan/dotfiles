@@ -1,0 +1,41 @@
+personality = "pragmatic"
+model = "gpt-5.5"
+service_tier = "default"
+approvals_reviewer = "user"
+model_reasoning_effort = "medium"
+
+[mcp_servers.sentry]
+command = "npx"
+args = ["-y", "mcp-remote@latest"]
+
+[mcp_servers.vercel]
+url = "https://mcp.vercel.com"
+
+[mcp_servers.slite]
+url = "https://api.slite.com/mcp"
+
+[mcp_servers.asana]
+url = "https://mcp.asana.com/v2/mcp"
+
+[projects."/Users/bostonrohan/Projects/Work/elevation"]
+trust_level = "trusted"
+
+[projects."/Users/bostonrohan/Projects/Work/elevation/ec-website"]
+trust_level = "trusted"
+
+[projects."/Users/bostonrohan/Projects/Personal/portfolio"]
+trust_level = "trusted"
+
+[projects."/Users/bostonrohan/Projects/Work/elevation/elevation-church-backend"]
+trust_level = "trusted"
+
+[projects."/Users/bostonrohan/Projects/dotfiles"]
+trust_level = "trusted"
+
+[notice.model_migrations]
+"gpt-5.3-codex" = "gpt-5.4"
+"gpt-5.2" = "gpt-5.4"
+"gpt-5.1-codex-max" = "gpt-5.4"
+
+[tui.model_availability_nux]
+"gpt-5.5" = 4

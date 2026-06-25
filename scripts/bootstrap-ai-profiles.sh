@@ -18,10 +18,10 @@ link_with_backup() {
   ln -sfn "$src" "$dst"
 }
 
-link_with_backup "$DOTFILES_ROOT/.config/codex/profiles/personal/config.toml" "$HOME/.codex/config.toml"
-link_with_backup "$DOTFILES_ROOT/.config/codex/profiles/work/config.toml" "$HOME/.ec-codex/config.toml"
-link_with_backup "$DOTFILES_ROOT/.config/claude/profiles/personal/settings.json" "$HOME/.claude/settings.json"
-link_with_backup "$DOTFILES_ROOT/.config/claude/profiles/work/settings.json" "$HOME/.ec-claude/settings.json"
+link_with_backup "$DOTFILES_ROOT/codex/.config/codex/profiles/personal/config.toml" "$HOME/.codex/config.toml"
+link_with_backup "$DOTFILES_ROOT/codex/.config/codex/profiles/work/config.toml" "$HOME/.ec-codex/config.toml"
+link_with_backup "$DOTFILES_ROOT/claude/.config/claude/profiles/personal/settings.json" "$HOME/.claude/settings.json"
+link_with_backup "$DOTFILES_ROOT/claude/.config/claude/profiles/work/settings.json" "$HOME/.ec-claude/settings.json"
 
 cat <<MSG
 AI profile bootstrap complete.

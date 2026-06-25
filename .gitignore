@@ -52,3 +52,6 @@ gcloud
 
 # SketchyBar local state
 .config/sketchybar/.display_profile
+
+# gh auth token — never commit
+gh/.config/gh/hosts.yml

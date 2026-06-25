@@ -1,0 +1,4 @@
+theme = abernathy 
+mouse-hide-while-typing = true
+window-decoration = true
+font-size = 16

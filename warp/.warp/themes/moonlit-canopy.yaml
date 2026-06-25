@@ -1,0 +1,28 @@
+name: Moonlit Canopy
+accent: '#38c7ea'
+cursor: '#b7f0ff'
+background: '#030b16'
+foreground: '#ecf5ff'
+details: darker
+background_image:
+  path: '../images/anime-night-sky-illustration.jpg'
+  opacity: 38
+terminal_colors:
+  normal:
+    black: '#0a1628'
+    red: '#ff8a92'
+    green: '#88e3ab'
+    yellow: '#ffd788'
+    blue: '#72adff'
+    magenta: '#cda8ff'
+    cyan: '#66dcf6'
+    white: '#ecf5ff'
+  bright:
+    black: '#314763'
+    red: '#ffadb3'
+    green: '#aaf1c4'
+    yellow: '#ffe8b0'
+    blue: '#9dc9ff'
+    magenta: '#e0c1ff'
+    cyan: '#95ecff'
+    white: '#ffffff'

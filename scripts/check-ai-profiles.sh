@@ -93,10 +93,10 @@ check_zshrc_pattern "ec-codex CODEX_HOME mapping" 'CODEX_HOME="\$HOME/\.ec-codex
 check_zshrc_pattern "claude CLAUDE_CONFIG_DIR mapping" 'CLAUDE_CONFIG_DIR="\$HOME/\.claude" command claude'
 check_zshrc_pattern "ec-claude CLAUDE_CONFIG_DIR mapping" 'CLAUDE_CONFIG_DIR="\$HOME/\.ec-claude" command claude'
 
-check_link "Codex default config" "$HOME/.codex/config.toml" "$DOTFILES_ROOT/.config/codex/profiles/personal/config.toml"
-check_link "Codex EC config" "$HOME/.ec-codex/config.toml" "$DOTFILES_ROOT/.config/codex/profiles/work/config.toml"
-check_link "Claude default settings" "$HOME/.claude/settings.json" "$DOTFILES_ROOT/.config/claude/profiles/personal/settings.json"
-check_link "Claude EC settings" "$HOME/.ec-claude/settings.json" "$DOTFILES_ROOT/.config/claude/profiles/work/settings.json"
+check_link "Codex default config" "$HOME/.codex/config.toml" "$DOTFILES_ROOT/codex/.config/codex/profiles/personal/config.toml"
+check_link "Codex EC config" "$HOME/.ec-codex/config.toml" "$DOTFILES_ROOT/codex/.config/codex/profiles/work/config.toml"
+check_link "Claude default settings" "$HOME/.claude/settings.json" "$DOTFILES_ROOT/claude/.config/claude/profiles/personal/settings.json"
+check_link "Claude EC settings" "$HOME/.ec-claude/settings.json" "$DOTFILES_ROOT/claude/.config/claude/profiles/work/settings.json"
 
 check_codex_status "Codex default" "$HOME/.codex"
 check_codex_status "Codex EC" "$HOME/.ec-codex"
