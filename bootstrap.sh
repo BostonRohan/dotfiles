@@ -55,6 +55,17 @@ npm install -g @google/gemini-cli
 # ---------------------------------------------------------------------------
 # Homebrew packages
 # ---------------------------------------------------------------------------
+# sketchybar + aerospace install from third-party taps that Homebrew requires
+# you to trust before `brew bundle` will load them. These are the
+# verified-official upstreams (confirmed remote URLs):
+#   felixkratz/formulae → github.com/FelixKratz/homebrew-formulae   (sketchybar)
+#   nikitabobko/tap     → github.com/nikitabobko/homebrew-tap        (aerospace)
+echo "==> Trusting sketchybar + aerospace taps (verified-official upstreams)"
+brew tap felixkratz/formulae >/dev/null 2>&1 || true
+brew tap nikitabobko/tap >/dev/null 2>&1 || true
+brew trust felixkratz/formulae
+brew trust nikitabobko/tap
+
 echo "==> Installing brew packages"
 brew bundle --file "${ROOT_DIR}/Brewfile"
 
