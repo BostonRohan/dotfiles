@@ -15,8 +15,10 @@ fi
 # Toolchains installed OUTSIDE Homebrew (version managers + native installers).
 # Done BEFORE brew bundle so node is on PATH for the npm global below.
 # ---------------------------------------------------------------------------
+# DEFAULT_NODE must be a version where corepack's pinned pnpm@latest works;
+# node 20.11.0 crashes pnpm with ERR_VM_DYNAMIC_IMPORT_CALLBACK_MISSING.
 NODE_VERSIONS=("20.11.0" "22.13.1" "24.14.0")
-DEFAULT_NODE="20.11.0"
+DEFAULT_NODE="22.13.1"
 
 echo "==> nvm + node"
 export NVM_DIR="${HOME}/.nvm"
@@ -34,6 +36,11 @@ nvm use default
 echo "==> pnpm (via corepack)"
 corepack enable >/dev/null 2>&1 || true
 corepack prepare pnpm@latest --activate >/dev/null 2>&1 || true
+
+echo "==> vercel cli (pnpm global on default node)"
+# Official install method per https://vercel.com/docs/cli
+# Tied to the default node above; if you change it, re-run this line.
+pnpm add -g vercel@latest
 
 echo "==> rust (rustup)"
 if ! command -v rustc >/dev/null 2>&1; then

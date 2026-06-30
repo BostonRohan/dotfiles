@@ -133,10 +133,15 @@ export PKG_CONFIG_PATH="$(brew --prefix openssl@3)/lib/pkgconfig"
 
 # pnpm
 export PNPM_HOME="$HOME/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
+# pnpm v11 links global package binaries into $PNPM_HOME/bin; older pnpm put
+# them directly in $PNPM_HOME, so keep both on PATH.
+for _pnpm_dir in "$PNPM_HOME/bin" "$PNPM_HOME"; do
+  case ":$PATH:" in
+    *":$_pnpm_dir:"*) ;;
+    *) export PATH="$_pnpm_dir:$PATH" ;;
+  esac
+done
+unset _pnpm_dir
 # pnpm end
 
 # The next line updates PATH for the Google Cloud SDK.

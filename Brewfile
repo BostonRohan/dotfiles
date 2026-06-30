@@ -32,4 +32,5 @@ cask "font-jetbrains-mono-nerd-font"
 
 # Note: not installed by brew (handled in bootstrap.sh):
 #   nvm + node, rustup, pnpm (corepack), Claude Code (native installer),
-#   @google/gemini-cli (npm global on default node)
+#   @google/gemini-cli (npm global on default node),
+#   vercel (pnpm global on default node)
